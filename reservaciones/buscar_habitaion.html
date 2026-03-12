@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Buscar Habitaciones</title>
+
+<style>
+/* ESTILO GENERAL */
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+}
+
+/* HEADER */
+header{
+    background:#742821;
+    padding:15px;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;
+}
+
+.logo img{
+    width:80px;
+    height:auto;
+}
+
+.menu ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+/* MENU GRID */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.menu-grid a{
+    background:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid a:hover{
+    background:#e9ecef;
+}
+
+/* FORMULARIO BUSQUEDA */
+.form-busqueda{
+    max-width:1000px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+.form-busqueda h2{
+    text-align:center;
+    color:#742821;
+    margin-bottom:20px;
+}
+
+.form-busqueda label{
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.form-busqueda input, .form-busqueda select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+
+.form-busqueda .fila{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.form-busqueda .fila > div{
+    flex:1 1 200px;
+}
+
+.boton-buscar{
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    background:#742821;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.boton-buscar:hover{
+    background:#5a1e1b;
+}
+
+/* FILTROS */
+.filtros{
+    max-width:1000px;
+    margin:20px auto;
+    padding:15px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filtros label{
+    margin-right:10px;
+}
+
+/* RESULTADOS */
+.resultados{
+    max-width:1200px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.tarjeta-hotel{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+.tarjeta-hotel img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.info-hotel{
+    padding:15px;
+}
+
+.nombre-hotel{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.ubicacion{
+    color:gray;
+    font-size:14px;
+}
+
+.servicios{
+    margin-top:10px;
+    font-size:14px;
+}
+
+.precio{
+    margin-top:10px;
+    font-weight:bold;
+    color:green;
+}
+
+.boton-reservar{
+    margin-top:15px;
+    padding:10px;
+    width:100%;
+    background:#742821;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.boton-reservar:hover{
+    background:#5a1e1b;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    .form-busqueda .fila{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+    <div class="logo"><img src="logo.jpeg" alt="Logo"></div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<!-- MENU GRID DE OPCIONES -->
+
+<div class="menu-grid">
+
+<a href="reservaciones.html">Reservaciones</a>
+<a href="ver_disponibiidad.html">Ver disponibilidad</a>
+<a href="fecha_entrada_salida.html">Fecha entrada / salida</a>
+<a href="tipo_habitacion.html">Tipo de habitación</a>
+<a href="alojamiento.html">Alojamiento</a>
+<a href="precio_mayor.html">Precio por noche</a>
+
+</div>
+
+<!-- FORMULARIO DE BUSQUEDA -->
+<section class="form-busqueda">
+<h2>Buscar Habitaciones</h2>
+<div class="fila">
+    <div>
+        <label for="hotel">Destino / Hotel</label>
+        <select id="hotel">
+            <option value="">Seleccione Hotel o Ciudad</option>
+            <option value="real-intercontinental">Hotel Real Intercontinental</option>
+            <option value="royal-decameron">Hotel Royal Decamero Salinitas</option>
+            <option value="sheraton-presidente">Hotel Sheraton Presidente</option>
+        </select>
+    </div>
+    <div>
+        <label for="entrada">Fecha de Entrada</label>
+        <input type="date" id="entrada">
+    </div>
+    <div>
+        <label for="salida">Fecha de Salida</label>
+        <input type="date" id="salida">
+    </div>
+</div>
+<div class="fila">
+    <div>
+        <label for="adultos">Adultos</label>
+        <input type="number" id="adultos" min="1" value="1">
+    </div>
+    <div>
+        <label for="ninos">Niños</label>
+        <input type="number" id="ninos" min="0" value="0">
+    </div>
+    <div>
+        <label for="tipo">Tipo de Habitación</label>
+        <select id="tipo">
+            <option value="">Todos</option>
+            <option value="individual">Individual</option>
+            <option value="doble">Doble</option>
+            <option value="suite">Suite</option>
+        </select>
+    </div>
+</div>
+<button class="boton-buscar">Buscar</button>
+</section>
+
+<!-- FILTROS OPCIONALES -->
+<section class="filtros">
+<h3>Filtros adicionales</h3>
+<label>Precio: <input type="range" min="50" max="500" step="10"></label>
+<label><input type="checkbox"> Wifi</label>
+<label><input type="checkbox"> Desayuno incluido</label>
+<label><input type="checkbox"> Piscina</label>
+<label><input type="checkbox"> Gimnasio</label>
+<label><input type="checkbox"> Mascotas permitidas</label>
+<label>Estrellas:
+<select>
+    <option value="">Todas</option>
+    <option value="5">5 estrellas</option>
+    <option value="4">4 estrellas</option>
+    <option value="3">3 estrellas</option>
+</select>
+</label>
+</section>
+
+<!-- RESULTADOS DE BÚSQUEDA -->
+<section class="resultados">
+
+<!-- HOTEL REAL INTERCONTINENTAL -->
+<div class="tarjeta-hotel">
+<img src="https://digital.ihg.com/is/image/ihg/intercontinental-san-salvador-6828659368-2x1" alt="Hotel Real Intercontinental">
+<div class="info-hotel">
+<div class="nombre-hotel">Hotel Real Intercontinental</div>
+<div class="ubicacion">San Salvador</div>
+<p>Habitación: Deluxe</p>
+<p>Capacidad: 2 adultos</p>
+<p>Cama: 1 King</p>
+<div class="servicios">WiFi • Desayuno • Piscina</div>
+<div class="precio">$150 por noche</div>
+<button class="boton-reservar">Reservar</button>
+</div>
+</div>
+
+<!-- HOTEL ROYAL DECAMERO SALINITAS -->
+<div class="tarjeta-hotel">
+<img src="https://www.decameron.com/media/uploads/galeriahabitaciones/superior-2.webp?q=pr:sharp/rs:fill/w:800/h:600/g:ce/f:jpg" alt="Hotel Royal Decamero Salinitas">
+<div class="info-hotel">
+<div class="nombre-hotel">Hotel Royal Decamero Salinitas</div>
+<div class="ubicacion">Salinitas</div>
+<p>Habitación: Suite Familiar</p>
+<p>Capacidad: 4 personas</p>
+<p>Cama: 2 Queen</p>
+<div class="servicios">WiFi • Desayuno • Piscina • Gimnasio</div>
+<div class="precio">$200 por noche</div>
+<button class="boton-reservar">Reservar</button>
+</div>
+</div>
+
+<!-- HOTEL SHERATON PRESIDENTE -->
+<div class="tarjeta-hotel">
+<img src="https://cache.marriott.com/content/dam/marriott-renditions/SALSI/salsi-king-guestroom-3256-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=540px:*" alt="Hotel Sheraton Presidente">
+<div class="info-hotel">
+<div class="nombre-hotel">Hotel Sheraton Presidente</div>
+<div class="ubicacion">San Salvador</div>
+<p>Habitación: Executive</p>
+<p>Capacidad: 2 adultos</p>
+<p>Cama: 1 King</p>
+<div class="servicios">WiFi • Desayuno • Gimnasio</div>
+<div class="precio">$180 por noche</div>
+<button class="boton-reservar">Reservar</button>
+</div>
+</div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hoteles El Salvador</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Georgia, serif;
+    background:#e6e6e6;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* MENU IZQUIERDO */
+.menu{
+    width:35%;
+    background-image:url("https://images.unsplash.com/photo-1505691938895-1758d7feb511");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    position:relative;
+}
+
+.menu-overlay{
+    background:rgba(0,0,0,0.45);
+    height:100%;
+    padding:40px;
+}
+
+.logo img{
+    width:80px;
+    height:auto;
+}
+
+/* GRID MENU */
+.menu h2{
+    margin-top:0;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:30px;
+    font-size:13px;
+}
+
+.menu-grid div{
+    background:#742821(139,107,79,0.85); /* mismo color de botones */
+    border-radius:5px;
+    text-align:center;
+    padding:10px;
+    transition:all 0.3s ease;
+}
+
+.menu-grid div:hover{
+    background:#742821; /* oscuro al pasar el mouse */
+    cursor:pointer;
+}
+
+.menu-grid div a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    font-weight:bold;
+}
+
+.menu-grid div a:hover{
+    text-decoration:underline;
+}
+
+/* BOTONES INFERIORES */
+.menu-buttons{
+    position:absolute;
+    bottom:30px;
+    left:40px;
+    display:flex;
+    gap:15px;
+}
+
+.menu-buttons button{
+    background:#742821;
+    border:none;
+    padding:10px 20px;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:all 0.3s ease;
+}
+
+.menu-buttons button:hover{
+    background:#742821;
+}
+
+/* CONTENIDO DERECHO */
+.content{
+    width:65%;
+    overflow:auto;
+    padding:20px;
+}
+
+.hotel{
+    margin-bottom:40px;
+}
+
+.hotel h2{
+    text-align:center;
+    background:#d9d9d9;
+    padding:5px;
+    font-weight:normal;
+    border-radius:5px;
+}
+
+.hotel-images{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+}
+
+.hotel-images img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+/* OPCIONAL: ENLACES EN RESULTADOS */
+.vdis a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    width:100%;
+    padding:6px;
+}
+
+.vdis:hover a{
+    background-color:#742821;
+    border-radius:3px;
+}
+    
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- MENU -->
+
+<div class="menu">
+<div class="menu-overlay">
+
+<div class="logo">
+    <img src="logo.jpeg" alt="Logo">
+</div>
+
+<div class="menu-grid">
+<div class="vdis"><a href="ver_disponibiidad.html">VER DISPONIBILIDAD</a></div>
+<div class="bsbab"><a href="buscar_habitaion.html">BUSCAR HABITACIONES</a></div>
+<div class="feen"><a href="fecha_entrada_salida.html">FECHA DE ENTRADA</a></div>
+<div class="tihabi"><a href="tipo_habitacion.html">TIPO DE HABITACIÓN</a></div>
+<div class="aloja"><a href="alojamiento.html">ALOJAMIENTO</a></div>
+<div class="preche"><a href="precio_mayor.html">PRECIO MAYOR POR NOCHE</a></div>
+</div>
+
+<div class="menu-buttons">
+<button>RECOMENDADOS</button>
+<button>DESCUENTOS</button>
+<button>ESTE SEMANA</button>
+</div>
+
+</div>
+</div>
+
+
+<!-- CONTENIDO -->
+
+<div class="content">
+
+<div class="hotel">
+<h2>Hotel Real Intercontinental</h2>
+
+<div class="hotel-images">
+<img src="https://digital.ihg.com/is/image/ihg/intercontinental-san-salvador-5157422714-4x3">
+<img src="https://x.cdrst.com/foto/hotel-sf/1224b005/granderesp/foto-hotel-1224a55b.jpg">
+<img src="https://intercontinental-real.san-salvador-hotels.com/data/Images/OriginalPhoto/17094/1709466/1709466385/image-san-salvador-real-intercontinental-san-salvador-by-ihg-57.JPEG">
+</div>
+</div>
+
+
+<div class="hotel">
+<h2>Hotel Royal Decameron Salinitas</h2>
+
+<div class="hotel-images">
+<img src="https://travelagents.decameron.com/images/destinos/el-salvador/salinitas-002.jpg">
+<img src="https://cheapervacations.com/crop/hotelphoto/767/335/decameron-salinitas--pool.jpg">
+<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/25/a4/a5/royal-decameron-salinitas.jpg?w=700&h=-1&s=1">
+</div>
+</div>
+
+
+<div class="hotel">
+<h2>Hotel Holiday Inn</h2>
+
+<div class="hotel-images">
+<img src="https://digital.ihg.com/is/image/ihg/holiday-inn-san-salvador-7105916249-4x3">
+<img src="https://content.r9cdn.net/rimg/himg/bb/58/dd/leonardo-1105930-SSLRC_5130920966_O-133550.jpg?width=1200&height=630&crop=true">
+<img src="https://holiday-inn.san-salvador-hotels.com/data/Images/OriginalPhoto/14410/1441089/1441089550/image-san-salvador-holiday-inn-san-salvador-by-ihg-2.JPEG">
+</div>
+</div>
+
+
+<div class="hotel">
+<h2>Hotel Sheraton Presidente</h2>
+
+<div class="hotel-images">
+<img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/630262145.jpg?k=133812b1fa9be835bc95af835e48a92b93f9b48b1fca6a18b2dcac2e560ddf47&o=">
+<img src="https://cache.marriott.com/content/dam/marriott-renditions/SALSI/salsi-pool-eveningtime-3259-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*">
+<img src="https://cache.marriott.com/content/dam/marriott-renditions/SALSI/salsi-king-guestroom-3256-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=540px:*">
+</div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

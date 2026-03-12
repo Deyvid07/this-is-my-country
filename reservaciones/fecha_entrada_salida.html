@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Fechas de Entrada y Salida</title>
+
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+}
+
+/* MENU PRINCIPAL */
+header{
+    background:#742821;
+    padding:15px;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#742821;
+    padding:10px 20px;
+}
+
+.logo img{
+    width:80px;
+    height:auto;
+}
+
+.menu ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+/* MENU GRID */
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.menu-grid a{
+    background:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid a:hover{
+    background:#e9ecef;
+}
+
+/* TITULO */
+h1{
+    text-align:center;
+    margin-top:30px;
+}
+
+/* SECCION CALENDARIO */
+.seccion-fechas{
+    max-width:600px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.seccion-fechas h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.input-group label{
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.input-group input{
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+#mensaje-estancia{
+    margin-top:10px;
+    font-weight:bold;
+    color:#742821;
+}
+
+.botones-rapidos{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:10px;
+}
+
+.botones-rapidos button{
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    background:#742821;
+    color:white;
+    cursor:pointer;
+}
+
+.botones-rapidos button:hover{
+    background:#5a1b17;
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="navbar">
+    <div class="logo"><img src="logo.jpeg" alt="Logo"></div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<!-- MENU GRID -->
+<div class="menu-grid">
+    <a href="reservaciones.html">Reservaciones</a>
+    <a href="ver_disponibiidad.html">Ver disponibilidad</a>
+    <a href="buscar_habitaion.html">Buscar habitaciones</a>
+    <a href="tipo_habitacion.html">Tipo de habitación</a>
+    <a href="alojamiento.html">Alojamiento</a>
+    <a href="precio_mayor.html">Precio por noche</a>
+    
+</div>
+
+<h1>Selecciona tus fechas</h1>
+
+<section class="seccion-fechas">
+    <h2>Fechas de Entrada y Salida</h2>
+
+    <div class="input-group">
+        <label for="rango-fechas">Selecciona rango de fechas:</label>
+        <input type="text" id="rango-fechas" placeholder="Elige tus fechas">
+    </div>
+
+    <div class="botones-rapidos">
+        <button onclick="seleccionRapida('today')">Hoy</button>
+        <button onclick="seleccionRapida('tomorrow')">Mañana</button>
+        <button onclick="seleccionRapida('weekend')">Este fin de semana</button>
+    </div>
+
+    <div id="mensaje-estancia"></div>
+</section>
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+const fechasNoDisponibles = ["2026-03-15","2026-03-16","2026-03-20"]; // ejemplo de fechas bloqueadas
+
+const fp = flatpickr("#rango-fechas", {
+    mode: "range",
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    disable: fechasNoDisponibles,
+    onChange: function(selectedDates, dateStr, instance){
+        if(selectedDates.length === 2){
+            const diff = Math.ceil((selectedDates[1] - selectedDates[0]) / (1000*60*60*24));
+            if(diff < 1){
+                document.getElementById("mensaje-estancia").textContent = "La estancia mínima es de 1 noche";
+            } else {
+                document.getElementById("mensaje-estancia").textContent = `Estás reservando ${diff} noche${diff > 1 ? 's' : ''}`;
+            }
+        } else {
+            document.getElementById("mensaje-estancia").textContent = "";
+        }
+    }
+});
+
+// Función para botones rápidos
+function seleccionRapida(tipo){
+    const hoy = new Date();
+    let entrada, salida;
+    switch(tipo){
+        case 'today':
+            entrada = hoy;
+            salida = new Date(hoy);
+            salida.setDate(salida.getDate() + 1);
+            break;
+        case 'tomorrow':
+            entrada = new Date(hoy);
+            entrada.setDate(entrada.getDate() + 1);
+            salida = new Date(entrada);
+            salida.setDate(salida.getDate() + 1);
+            break;
+        case 'weekend':
+            const dia = hoy.getDay();
+            // viernes =5, sábado=6
+            entrada = new Date(hoy);
+            entrada.setDate(entrada.getDate() + (5-dia >=0 ? 5-dia : 7-(dia-5)));
+            salida = new Date(entrada);
+            salida.setDate(salida.getDate() + 2); // 2 noches
+            break;
+    }
+    fp.setDate([entrada, salida], true);
+}
+</script>
+
+</body>
+</html>

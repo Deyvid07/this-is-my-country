@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Alojamiento</title>
+
+<style>
+
+/* ESTILO GENERAL */
+body{
+font-family: Arial, sans-serif;
+background:#f2f2f2;
+margin:0;
+}
+
+/* MENU PRINCIPAL */
+header{
+background:#742821;
+padding:15px;
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#742821;
+padding:10px 20px;
+}
+
+.logo img{
+width:80px;
+height:auto;
+}
+
+.menu ul{
+display:flex;
+list-style:none;
+gap:20px;
+margin:0;
+padding:0;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.menu a:hover{
+text-decoration:underline;
+}
+
+/* MENU GRID */
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+padding:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.menu-grid a{
+background:white;
+padding:15px;
+text-align:center;
+border-radius:8px;
+text-decoration:none;
+color:#333;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid a:hover{
+background:#e9ecef;
+}
+
+/* HERO */
+.hero{
+background-image:url("https://images.unsplash.com/photo-1566073771259-6a8506099945");
+background-size:cover;
+background-position:center;
+height:350px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+}
+
+.hero-text{
+background:rgba(0,0,0,0.5);
+padding:30px;
+border-radius:10px;
+}
+
+.hero h1{
+margin:0;
+font-size:36px;
+}
+
+.hero p{
+margin-top:10px;
+font-size:18px;
+}
+
+/* DESCRIPCION */
+.descripcion{
+background-color:#742821;
+padding:40px;
+max-width:900px;
+margin:auto;
+text-align:center;
+color:#ffffff;
+
+}
+
+/* CARACTERISTICAS */
+.caracteristicas{
+background:white;
+padding:40px;
+}
+
+.lista-caracteristicas{
+max-width:800px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+text-align:center;
+
+}
+
+.lista-caracteristicas div{
+background:#f5f5f5;
+padding:15px;
+border-radius:8px;
+}
+
+/* TIPOS HABITACIONES */
+
+.habitaciones{
+padding:40px;
+text-align:center;
+}
+
+.contenedor-habitaciones{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.habitacion{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.habitacion img{
+width:100%;
+border-radius:8px;
+}
+
+button{
+margin-top:10px;
+padding:10px;
+border:none;
+background:#742821;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#742821;
+}
+
+/* SERVICIOS */
+
+.servicios{
+background:#eef2f7;
+padding:40px;
+text-align:center;
+}
+
+.lista-servicios{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+max-width:900px;
+margin:auto;
+}
+
+.lista-servicios div{
+background:white;
+padding:15px;
+border-radius:8px;
+}
+
+/* GALERIA */
+
+.galeria{
+padding:40px;
+text-align:center;
+}
+
+.contenedor-galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.contenedor-galeria img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+}
+
+/* BOTON RESERVA */
+
+.reserva{
+text-align:center;
+padding:40px;
+background:white;
+}
+
+.boton-reserva{
+padding:15px 25px;
+background:#742821;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+
+<div class="logo">
+<img src="logo.jpeg" alt="Logo">
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="#">Inicio</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<!-- MENU GRID -->
+
+<div class="menu-grid">
+
+<a href="reservaciones.html">Reservaciones</a>
+<a href="ver_disponibiidad.html">Ver disponibilidad</a>
+<a href="buscar_habitaion.html">Buscar habitaciones</a>
+<a href="fecha_entrada_salida.html">Fecha entrada / salida</a>
+<a href="tipo_habitacion.html">Tipo de habitación</a>
+<a href="precio_mayor.html">Precio por noche</a>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+<div class="hero-text">
+<h1>Alojamiento en su hotel de preferencia</h1>
+<p>Disfruta de comodidad, tranquilidad y servicios de calidad durante tu estancia.</p>
+</div>
+</section>
+
+<!-- DESCRIPCION -->
+
+<section class="descripcion">
+
+<h2>Nuestro Alojamiento</h2>
+
+<p>
+Nuestro hotel ofrece habitaciones cómodas y modernas diseñadas para brindar descanso y bienestar a nuestros huéspedes. Contamos con diferentes tipos de habitaciones adaptadas para viajeros individuales, parejas y familias.
+</p>
+
+</section>
+
+<!-- CARACTERISTICAS -->
+
+<section class="caracteristicas">
+
+<h2 style="text-align:center;">Características del Alojamiento</h2>
+
+<div class="lista-caracteristicas">
+
+<div>Habitaciones cómodas</div>
+<div>Aire acondicionado</div>
+<div>WiFi gratuito</div>
+<div>Televisión</div>
+<div>Baño privado</div>
+<div>Servicio de limpieza</div>
+<div>Atención 24 horas</div>
+
+</div>
+
+</section>
+
+<!-- TIPOS HABITACIONES -->
+
+<section class="habitaciones">
+
+<h2>Tipos de Habitaciones</h2>
+
+<div class="contenedor-habitaciones">
+
+<div class="habitacion">
+<img src="https://www.hotelvaldorba.com/wp-content/uploads/2014/11/Habitacion-de-Hotel-rural-Valdorba-en-Navarra-1920x1080.jpg">
+<h3>Habitación Individual</h3>
+<p>Perfecta para viajeros solos que buscan comodidad.</p>
+<button>Ver más</button>
+</div>
+
+<div class="habitacion">
+<img src="https://image-tc.galaxy.tf/wijpeg-c0yzeszt7p4hys7zwkcmohkl0/deluxe-2-double_standard.jpg">
+<h3>Habitación Doble</h3>
+<p>Ideal para parejas o dos personas.</p>
+<button>Ver más</button>
+</div>
+
+<div class="habitacion">
+<img src="https://mundodehoteles.com/wp-content/uploads/diferencia-entre-habitacion-y-suite.webp">
+<h3>Suite</h3>
+<p>Habitación amplia con mayor comodidad y lujo.</p>
+<button>Ver más</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section class="servicios">
+
+<h2>Servicios Incluidos</h2>
+
+<div class="lista-servicios">
+
+<div>Desayuno incluido</div>
+<div>Piscina</div>
+<div>Restaurante</div>
+<div>Gimnasio</div>
+<div>Estacionamiento</div>
+<div>Seguridad 24 horas</div>
+
+</div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="galeria">
+
+<h2>Galería</h2>
+
+<div class="contenedor-galeria">
+
+<img src="https://q-xx.bstatic.com/xdata/images/hotel/max500/696261614.jpg?k=73aa9b4ddfc10128ad9e91dc949427c3c34e4f3008ec3f998dbb4cb7dfe66c2c&o=">
+<img src="https://images.trvl-media.com/lodging/1000000/440000/435800/435782/7573ed93.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill ">
+<img src="https://www.decameron.com/media/uploads/galeriahoteles/salinitas-el-salvador-lobby.webp?q=pr:sharp/rs:fill/w:600/h:400/g:ce/f:jpg">
+<img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/630262146.jpg?k=7b62239bb0cfb824bba4d8c85829a30020d0a21dfb7279bfd559ede97505d698&o=">
+
+</div>
+
+</section>
+
+<!-- BOTON RESERVA -->
+
+<section class="reserva">
+
+<h2>¿Listo para tu estancia?</h2>
+
+<p>Encuentra la habitación perfecta para ti.</p>
+
+<button class="boton-reserva">Buscar habitaciones disponibles</button>
+
+</section>
+
+</body>
+</html>

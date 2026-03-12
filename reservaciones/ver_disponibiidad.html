@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ver disponibilidad</title>
+
+<style>
+
+/* ESTILO GENERAL */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+}
+
+/* MENU PRINCIPAL */
+
+header{
+    background:#742821;
+    padding:15px;
+}
+
+/* barra del menu */
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: #742821;
+    padding:10px 20px;
+}
+
+/* logo */
+.logo img{
+    width:80px;
+    height:auto;
+}
+
+/* menu */
+.menu ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+/* MENU GRID */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.menu-grid a{
+    background:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid a:hover{
+    background:#e9ecef;
+}
+
+/* TITULO */
+
+h1{
+    text-align:center;
+    margin-top:30px;
+}
+
+/* TARJETAS DE HOTELES */
+
+.contenedor-hoteles{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.tarjeta-hotel{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px #742821(0,0,0,0.1);
+}
+
+.tarjeta-hotel img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.info-hotel{
+    padding:15px;
+}
+
+.nombre-hotel{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.ubicacion{
+    color:gray;
+    font-size:14px;
+}
+
+.precio{
+    font-size:18px;
+    color:green;
+    margin-top:10px;
+}
+
+.servicios{
+    margin-top:10px;
+}
+
+.disponibilidad{
+    color:red;
+    margin-top:5px;
+}
+
+.boton-reservar{
+    width:100%;
+    padding:10px;
+    margin-top:15px;
+    background:#742821;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.boton-reservar:hover{
+    background:#742821;
+}
+
+/* SECCION HABITACIONES */
+
+.habitaciones{
+    padding:40px;
+    background:#f5f5f5;
+    text-align:center;
+}
+
+.contenedor-habitaciones{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.habitacion{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.habitacion img{
+    width:100%;
+    border-radius:8px;
+}
+
+button{
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    background:#742821;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#742821;
+}
+
+/* Sección precios */
+.precios{
+  padding:40px;
+  background:#eef2f7;
+  text-align:center;
+}
+
+/* Contenedor de las tarjetas */
+.contenedor-precios{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap; /* para pantallas pequeñas */
+  margin-top:20px;
+}
+
+/* Tarjeta individual */
+.precio-card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  flex:1 1 250px;
+  max-width:300px;
+  text-align:left;
+}
+
+.precio-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+.precio-card h3{
+  margin-top:0;
+  font-size:18px;
+}
+
+.precio-card p{
+  margin:5px 0;
+  font-size:14px;
+}
+
+.precio-noche{
+  font-weight:bold;
+  color:#0d6efd;
+}
+
+.precio-total{
+  font-weight:bold;
+  color:green;
+  font-size:16px;
+}
+
+.impuestos{
+  color:#555;
+}
+
+.descuento{
+  color:#d63384;
+  font-weight:bold;
+}
+
+.boton-reservar{
+  margin-top:15px;
+  padding:10px;
+  width:100%;
+  background:#742821;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.boton-reservar:hover{
+  background:#742821;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+
+<div class="logo">
+<img src="logo.jpeg" alt="Logo">
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="#">Inicio</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<!-- MENU GRID DE OPCIONES -->
+
+<div class="menu-grid">
+
+<a href="reservaciones.html">Reservaciones</a>
+<a href="buscar_habitaion.html">Buscar habitaciones</a>
+<a href="fecha_entrada_salida.html">Fecha entrada / salida</a>
+<a href="tipo_habitacion.html">Tipo de habitación</a>
+<a href="alojamiento.html">Alojamiento</a>
+<a href="precio_mayor.html">Precio por noche</a>
+
+</div>
+
+<!--section ver disponibilidad-->
+<h1>Ver disponibilidad</h1>
+
+
+<div class="contenedor-hoteles">
+
+<div class="tarjeta-hotel">
+
+<img src="https://digital.ihg.com/is/image/ihg/holiday-inn-hotel-and-suites-vientiane-9719157137-3x2">
+
+<div class="info-hotel">
+
+<div class="nombre-hotel">Hotel Holiday Inn</div>
+<div class="ubicacion">San Salvador</div>
+
+<p><strong>Habitación:</strong> Deluxe</p>
+<p><strong>Capacidad:</strong> 2 adultos</p>
+
+<div class="servicios">
+WiFi • Desayuno • Aire acondicionado • Piscina
+</div>
+
+<div class="precio">$90 por noche</div>
+
+<div class="disponibilidad">
+Solo quedan 2 habitaciones
+</div>
+
+<button class="boton-reservar">Reservar</button>
+
+</div>
+</div>
+
+
+<div class="tarjeta-hotel">
+
+<img src="https://cdn-zen.readytotrip.com/t/1024x768/content/86/8b/868bcf8e206d94155fcebb8e9f93706a249ed3c7.JPEG">
+
+<div class="info-hotel">
+
+<div class="nombre-hotel">Hotel Real Intercontinental </div>
+<div class="ubicacion">San Salvador</div>
+
+<p><strong>Habitación:</strong> Standard</p>
+<p><strong>Capacidad:</strong> 3 personas</p>
+
+<div class="servicios">
+WiFi • Estacionamiento • Aire acondicionado
+</div>
+
+<div class="precio">$70 por noche</div>
+
+<div class="disponibilidad">
+5 habitaciones disponibles
+</div>
+
+<button class="boton-reservar">Reservar</button>
+
+</div>
+</div>
+
+</div>
+
+
+<section class="habitaciones">
+
+<h2>Habitaciones disponibles</h2>
+
+<div class="contenedor-habitaciones">
+
+<div class="habitacion">
+<img src="https://www.hotelvaldorba.com/wp-content/uploads/2014/11/Habitacion-de-Hotel-rural-Valdorba-en-Navarra-1920x1080.jpg">
+<h3>Habitación Standard</h3>
+<p>Capacidad: 2 personas</p>
+<p>Cama: 1 Queen</p>
+<p class="precio">$60 por noche</p>
+<button>Reservar</button>
+</div>
+
+<div class="habitacion">
+<img src="https://image-tc.galaxy.tf/wijpeg-c0yzeszt7p4hys7zwkcmohkl0/deluxe-2-double_standard.jpg?crop=135%2C0%2C1531%2C1148">
+<h3>Habitación Deluxe</h3>
+<p>Capacidad: 3 personas</p>
+<p>Cama: 1 King</p>
+<p class="precio">$90 por noche</p>
+<button>Reservar</button>
+</div>
+
+<div class="habitacion">
+<img src="https://mundodehoteles.com/wp-content/uploads/diferencia-entre-habitacion-y-suite.webp">
+<h3>Suite</h3>
+<p>Capacidad: 4 personas</p>
+<p>Cama: 2 Queen</p>
+<p class="precio">$140 por noche</p>
+<button>Reservar</button>
+</div>
+
+</div>
+</section>
+
+<!--section precios-->
+<section class="precios">
+  <h2>Precios de habitaciones disponibles</h2>
+
+  <div class="contenedor-precios">
+
+    <!-- HOTEL REAL INTERCONTINENTAL -->
+    <div class="precio-card">
+      <img src="https://digital.ihg.com/is/image/ihg/intercontinental-san-salvador-6828659368-2x1" alt="Hotel Real Intercontinental">
+      <h3>Hotel Real Intercontinental</h3>
+      <p>Habitación: Deluxe</p>
+      <p>Capacidad: 2 adultos</p>
+      <p>Cama: 1 King</p>
+      <p class="precio-noche">Precio por noche: <strong>$150</strong></p>
+      <p>Fechas seleccionadas: 3 noches</p>
+      <p class="precio-total">Total de la estancia: <strong>$450</strong></p>
+      <p class="impuestos">Impuestos: Incluidos</p>
+      <p class="descuento">🎉 Promoción: 15% de descuento esta semana</p>
+      <button class="boton-reservar">Reservar ahora</button>
+    </div>
+
+    <!-- HOTEL ROYAL DECAMERO SALINITAS -->
+    <div class="precio-card">
+      <img src="https://www.decameron.com/media/uploads/galeriahabitaciones/superior-2.webp?q=pr:sharp/rs:fill/w:800/h:600/g:ce/f:jpg" alt="Hotel Royal Decamero Salinitas">
+      <h3>Hotel Royal Decamero Salinitas</h3>
+      <p>Habitación: Suite Familiar</p>
+      <p>Capacidad: 4 personas</p>
+      <p>Cama: 2 Queen</p>
+      <p class="precio-noche">Precio por noche: <strong>$200</strong></p>
+      <p>Fechas seleccionadas: 3 noches</p>
+      <p class="precio-total">Total de la estancia: <strong>$600</strong></p>
+      <p class="impuestos">Impuestos: Incluidos</p>
+      <p class="descuento">🎉 Promoción: 10% de descuento esta semana</p>
+      <button class="boton-reservar">Reservar ahora</button>
+    </div>
+
+    <!-- HOTEL SHERATON PRESIDENTE -->
+    <div class="precio-card">
+      <img src="https://cache.marriott.com/content/dam/marriott-renditions/SALSI/salsi-king-guestroom-3256-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=540px:*" alt="Hotel Sheraton Presidente">
+      <h3>Hotel Sheraton Presidente</h3>
+      <p>Habitación: Executive</p>
+      <p>Capacidad: 2 adultos</p>
+      <p>Cama: 1 King</p>
+      <p class="precio-noche">Precio por noche: <strong>$180</strong></p>
+      <p>Fechas seleccionadas: 3 noches</p>
+      <p class="precio-total">Total de la estancia: <strong>$540</strong></p>
+      <p class="impuestos">Impuestos: Incluidos</p>
+      <p class="descuento">🎉 Promoción: 5% de descuento esta semana</p>
+      <button class="boton-reservar">Reservar ahora</button>
+    </div>
+
+  </div>
+</section>
+
+
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tipos de Habitaciones</title>
+<style>
+/* ESTILO GENERAL */
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+}
+
+/* MENU PRINCIPAL */
+header{
+    background:#742821;
+    padding:15px;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#742821;
+    padding:10px 20px;
+}
+
+.logo img{
+    width:80px;
+    height:auto;
+}
+
+.menu ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+/* MENU GRID */
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.menu-grid a{
+    background:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid a:hover{
+    background:#e9ecef;
+}
+
+/* TITULO SECCIÓN */
+h1{
+    text-align:center;
+    margin-top:30px;
+}
+
+/* DESCRIPCIÓN */
+.descripcion{
+    max-width:800px;
+    margin:10px auto 40px auto;
+    text-align:center;
+    font-size:16px;
+    color:#555;
+}
+
+/* SECCIÓN DE HABITACIONES */
+.contenedor-habitaciones{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.habitacion{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+}
+
+.habitacion img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.info-habitacion{
+    padding:15px;
+    flex-grow:1;
+}
+
+.info-habitacion h3{
+    margin:0 0 10px 0;
+    font-size:20px;
+    color:#742821;
+}
+
+.info-habitacion p{
+    margin:5px 0;
+    font-size:14px;
+    color:#555;
+}
+
+.servicios{
+    margin-top:10px;
+    font-size:13px;
+    color:#333;
+}
+
+.precio{
+    font-weight:bold;
+    color:green;
+    margin-top:10px;
+    font-size:16px;
+}
+
+.boton-reservar{
+    margin-top:15px;
+    padding:10px;
+    width:100%;
+    background:#742821;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.boton-reservar:hover{
+    background:#5a1b17;
+}
+
+/* FILTROS (opcional) */
+.filtros{
+    max-width:900px;
+    margin:20px auto;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.filtros select{
+    padding:8px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="navbar">
+    <div class="logo"><img src="logo.jpeg" alt="Logo"></div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<!-- MENU GRID -->
+<div class="menu-grid">
+    <a href="reservaciones.html">Reservaciones</a>
+    <a href="ver_disponibiidad.html">Ver disponibilidad</a>
+    <a href="buscar_habitaion.html">Buscar habitaciones</a>
+    <a href="fecha_entrada_salida.html">Fecha entrada / salida</a>
+    <a href="alojamiento.html">Alojamiento</a>
+    <a href="precio_mayor.html">Precio por noche</a>
+    
+</div>
+
+<h1>Nuestras Habitaciones</h1>
+<div class="descripcion">
+    Descubre la comodidad y elegancia de nuestras habitaciones. Cada espacio está diseñado para ofrecer una experiencia única, combinando confort, estilo y servicios de primera clase.
+</div>
+
+<!-- FILTROS (opcional) -->
+<div class="filtros">
+    <select>
+        <option value="">Filtrar por tipo</option>
+        <option value="suite">Suite</option>
+        <option value="doble">Doble</option>
+        <option value="individual">Individual</option>
+    </select>
+    <select>
+        <option value="">Filtrar por precio</option>
+        <option value="0-100">$0 - $100</option>
+        <option value="101-200">$101 - $200</option>
+        <option value="201+">$201+</option>
+    </select>
+    <select>
+        <option value="">Filtrar por capacidad</option>
+        <option value="1">1 persona</option>
+        <option value="2">2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+    </select>
+</div>
+
+<!-- TARJETAS DE HABITACIONES -->
+<div class="contenedor-habitaciones">
+
+    <div class="habitacion">
+        <img src="https://image-tc.galaxy.tf/wijpeg-c0yzeszt7p4hys7zwkcmohkl0/deluxe-2-double_standard.jpg" alt="Habitación Deluxe">
+        <div class="info-habitacion">
+            <h3>Habitación Doble Deluxe</h3>
+            <p>Ideal para parejas, con cama King y balcón con vista al jardín.</p>
+            <p>Capacidad: 2 adultos</p>
+            <p class="precio">$90 por noche</p>
+            <div class="servicios">WiFi • Desayuno • Aire acondicionado • Piscina</div>
+            <button class="boton-reservar">Ver Disponibilidad</button>
+        </div>
+    </div>
+
+    <div class="habitacion">
+        <img src="https://mundodehoteles.com/wp-content/uploads/diferencia-entre-habitacion-y-suite.webp" alt="Suite Familiar">
+        <div class="info-habitacion">
+            <h3>Suite Familiar</h3>
+            <p>Espaciosa suite para familias, con dos habitaciones y sala de estar.</p>
+            <p>Capacidad: 4 personas</p>
+            <p class="precio">$200 por noche</p>
+            <div class="servicios">WiFi • Estacionamiento • Aire acondicionado • Mini-bar</div>
+            <button class="boton-reservar">Ver Disponibilidad</button>
+        </div>
+    </div>
+
+    <div class="habitacion">
+        <img src="https://www.hotelvaldorba.com/wp-content/uploads/2014/11/Habitacion-de-Hotel-rural-Valdorba-en-Navarra-1920x1080.jpg" alt="Habitación Standard">
+        <div class="info-habitacion">
+            <h3>Habitación Standard</h3>
+            <p>Confortable y funcional, ideal para viajeros individuales o parejas.</p>
+            <p>Capacidad: 2 personas</p>
+            <p class="precio">$60 por noche</p>
+            <div class="servicios">WiFi • Desayuno</div>
+            <button class="boton-reservar">Ver Disponibilidad</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
